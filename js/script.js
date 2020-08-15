@@ -25,7 +25,7 @@ $(document).ready(function () {
         rowArr.each(function () {
             // console.log(this.innerText)
             // console.log($(this).data("hour"))
-            var thisHour = parseInt($(this).data("hour"));
+            var thisHour = parseInt($(this).attr("id").slice(5));
             console.log(thisHour)
             // Order if-else statements in chronological order
             if (thisHour < currentHour) {
