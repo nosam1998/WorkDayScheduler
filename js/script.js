@@ -1,6 +1,9 @@
 $(document).ready(function () {
     // group all  our code to run when DOM is ready
 
+    var rowArr = $(".time-block");
+    var currentHour
+
     $(".saveBtn").on("click", function () {
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
@@ -12,11 +15,6 @@ $(document).ready(function () {
         localStorage.clear();
         location.reload();
     });
-
-    console.log(currentHour)
-
-    var rowArr = $(".time-block");
-    var currentHour
 
 
     function updateHourStyle() {
@@ -42,12 +40,11 @@ $(document).ready(function () {
     updateHourStyle();
 
     var updateCheck = setInterval(updateHourStyle, 10000);
-    console.log(rowArr.length)
+
     for (var i = rowArr.length; i < rowArr.length * 2; i++) {
         var hour = `hour-${i}`
 
         $(`#${hour} .description`).val(localStorage.getItem(hour));
-        console.log(`${hour} .description`)
     }
 
     $("#currentDay").text(moment().format("dddd, MMMM Do"));
