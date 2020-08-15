@@ -20,11 +20,9 @@ $(document).ready(function () {
 
 
     function updateHourStyle() {
-        currentHour = moment().format('H');
+        currentHour = moment().hour();
 
         rowArr.each(function () {
-            // console.log(this.innerText)
-            // console.log($(this).data("hour"))
             var thisHour = parseInt($(this).attr("id").slice(5));
             console.log(thisHour)
             // Order if-else statements in chronological order
